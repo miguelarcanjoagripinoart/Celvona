@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me</title>
+  <style>
+    @font-face {
+      font-family: 'Livingstone';
+      src: url('Livingstone.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    @font-face {
+      font-family: 'Dungeon Crawler';
+      src: url('Dungeon Crawler.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    
+    .background-layer {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: url('desktop-background.jpg') center center / cover no-repeat;
+     z-index: -1;
+     pointer-events: none; /* garante que o conteúdo acima continue interativo */
+    }
+    /* Imagem para telemóvel (até 768px de largura) */
+    @media (max-width: 768px) {
+   .background-layer {
+     background-image: url('mobile-background.jpg');
+     background-position: center top;
+    }
+    }
+    
+
+    body {
+      margin: 0;
+      background-color: #ffffff;
+      color: #66023c;
+      overflow: hidden;
+    }
+
+    .hero-title {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 8vw;
+      white-space: nowrap;
+      margin: 0;
+      transition: all 1.2s ease;
+      z-index: 1000;
+      font-family: 'Livingstone', sans-serif;
+      }
+
+    .hero-title.shrink {
+      top: 70px;                     /* ⬆️ Sobe */
+      left: 50%;                    /* ⬅️ continua centralizado */
+      transform: translateX(-50%);  /* 🧷 centralizado horizontalmente */
+      font-size: 2em;               /* 🔠 menor */
+    }
+    
+        .scroll-top-icon {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%) scaleX(-1); /* Flip horizontal */
+  width: 60px;
+  height: auto;
+  cursor: pointer;
+  z-index: 1001;
+  opacity: 0;
+  transition: opacity 1s ease 1s;
+}
+
+.scroll-top-icon:hover {
+  transform: translateX(-50%) scaleX(-1) scale(1.1);
+}
+
+    .content {
+      max-width: 800px
+      margin: 40px auto;
+      opacity: 0;
+      padding-top: 140px;
+      text-align: center;
+      transition: opacity 1s ease 1s;
+      font-family: 'Dungeon Crawler', sans-serif;
+    }
+ 
+   body.show-content a.scroll-top-icon {
+   opacity: 1;
+   }
+   
+    body.show-content .content {
+      opacity: 1;
+    }
+    
+</style>
+</head>
+
+<body>
+<a class="scroll-top-icon" href="index.html">
+  <img src="ornamento.svg" alt="back" />
+</a>
+
+<div class="background-layer"></div>
+  <h1 class="hero-title" id="heroTitle">About Me</h1>
+
+  <div class="content">
+    <p>I’m a graphic designer, 2D/3D animator, and 3D modeler. But more than that, I’m a builder of symbols, stories, and meaning. Design is my language, and every project I create speaks with purpose, not just aesthetic function, but identity, depth, and vision.</p>
+
+<p>My company wasn’t built just for profit. It exists to express, to impact, and to help. Because design, in the right hands, becomes a tool for change, culturally, visually, and socially.
+I don’t believe in soulless minimalism. I believe in art, in lines that speak</p>
+
+<p>That’s why the Iberian lynx is both my brand's mascot and spirit. Rare. Fierce. Precise. And with the most beautiful eyes in the animal kingdom. Like mine, wide, intense, and capable of seeing what others miss, in both work and life. The lynx doesn’t guess, it sees. That’s how I create: with clarity, focus, and intention.</p>
+
+<p>The color Imperial Purple wasn’t chosen for aesthetics alone. Historically rare, once reserved for emperors and leaders, it stands for power, individuality, and creative authority. It wraps my brand in something few dare to wear: uniqueness.</p>
+
+<p>My brand is also inspired by Celtic culture, rich with symbols, nature and mysticism.</p>
+
+<p>If you love animals and if you see graphic design as art, we will be good friends and partners for sure.</p>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      const title = document.getElementById('heroTitle');
+      setTimeout(() => {
+        title.classList.add('shrink');
+        document.body.classList.add('show-content');
+      }, 600); // tempo ideal
+    });
+  </script>
+</body>
+</html>
+
