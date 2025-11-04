@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="My creative portfolio: graphic design, 3D, animation, and more." />
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+  <title>My Portfolio</title>
+  <style>
+    :root {
+      --purple: #66023c;
+    }
+   
+    a.box {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    }
+
+    @font-face {
+      font-family: 'Livingstone';
+      src: url('Livingstone.ttf')
+    format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    }
+    
+    .background-layer {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: url('desktop-background.jpg') center center / cover no-repeat;
+     z-index: -1;
+     pointer-events: none; /* garante que o conteúdo acima continue interativo */
+    }
+    /* Imagem para telemóvel (até 768px de largura) */
+    @media (max-width: 768px) {
+   .background-layer {
+     background-image: url('mobile-background.jpg');
+     background-position: center top;
+    }
+    }
+    
+    
+    body {
+      margin: 0;
+      background-color: #ffffff;
+      color: var(--purple);
+      font-family: 'Livingstone', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      margin: 40px auto;
+    }
+
+    header img {
+      width: 180px;
+      height: auto;
+    }
+
+    header h1 {
+      font-size: 3em;
+      margin: 10px 0;
+    }
+
+    @keyframes shine {
+      to {
+        left: 100%;
+      }
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      max-width: 1000px;
+      margin: 50px auto;
+      justify-content: center;
+    }
+    
+.box::before {
+  content: url('site.svg');
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* tenta ajustar a imagem */
+  z-index: 0;
+  display: block;
+}
+    
+    .box {
+      position: relative;
+      width: 300px;
+      height: 220px;
+      border: none;
+      background: #e5e4e2;
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.1);
+      z-index: 10;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
+    }
+
+    .box:hover .overlay {
+      opacity: 1;
+    }
+
+    .box-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+
+    .box h2 {
+      z-index: 2;
+      font-size: 1.5em;
+      color: var(--purple);
+    }
+
+    @media (max-width: 600px) {
+      header {
+        margin-top: 60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      header h1 {
+        font-size: 2em;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        margin: 30px auto;
+      }
+
+      .box {
+        width: 90vw;
+      }
+
+      header img {
+        width: 200px;
+      }
+    }
+    
+      .social-footer {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+  background: transparent;
+}
+
+.social-footer a i {
+  font-size: 32px;
+  color: #66023c; /* 🔁 Muda aqui para a cor que quiseres */
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+.social-footer a i:hover {
+  transform: scale(1.2);
+  opacity: 1;
+}
+    
+  </style>
+</head>
+
+<body>
+
+<footer class="social-footer">
+  <a href="https://www.instagram.com/celvona?igsh=NDJpcWZrMnNrZ3Mz" target="_blank" aria-label="Instagram">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://pin.it/1xXfRU5Xn" target="_blank" aria-label="Pinterest">
+    <i class="fab fa-pinterest"></i>
+  </a>
+  <a href="mailto:contact.celvona@gmail.com" target="_blank" aria-label="Email">
+    <i class="fas fa-envelope"></i>
+  </a>
+</footer>  
+       
+<div class="background-layer"></div>
+  <header>
+    <img src="logo.svg" alt="Logo" />
+    <h1>Celvona Studio</h1>
+  </header>
+
+  <section class="grid">
+  <a href="graphic-design.html" class="box">
+    <div class="overlay"></div>
+    <div class="box-content">
+      <h2>Graphic Design</h2>
+    </div>
+  </a>
+  <a href="2d-3d-animation.html" class="box">
+    <div class="overlay"></div>
+    <div class="box-content">
+      <h2>2D/3D Animation</h2>
+    </div>
+  </a>
+  <a href="3d-modeling.html" class="box">
+    <div class="overlay"></div>
+    <div class="box-content">
+      <h2>3D Modeling</h2>
+    </div>
+  </a>
+  <a href="about-me.html" class="box">
+    <div class="overlay"></div>
+    <div class="box-content">
+      <h2>About Me</h2>
+    </div>
+  </a>
+</section>
+</body>
+</html>
